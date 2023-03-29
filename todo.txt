@@ -1,0 +1,11 @@
+affichage joli
+
+connecter à l'IA
+
+faire les movements des pieces
+
+faire vérification layer chess: échecs
+
+enregistrer et charger partie
+
+destructeur de pièce quand elle est mangée? -> pile de moves plutot que détruire pour revenir en arrière
