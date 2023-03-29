@@ -1,1 +1,7 @@
+build/test/*
+!build/test/comp.sh
+
+Algorithmes Echec.pdf
+Projet Echec.pdf
+
 ChessAI
