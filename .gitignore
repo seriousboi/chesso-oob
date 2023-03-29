@@ -1,5 +1,5 @@
-build/test/*
-!build/test/comp.sh
+build*
+!build/Makefile
 
 Algorithmes Echec.pdf
 Projet Echec.pdf

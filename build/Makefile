@@ -1,5 +1,5 @@
 flags = -W -Wall -ansi -pedantic -std=c++17
-obj = AIconnectivity.o ChessGame.o Square.o Piece.o Board.o ChessBoard.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o 
+obj = AIconnectivity.o ChessGame.o Square.o Piece.o Board.o ChessBoard.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o
 
 
 
@@ -16,4 +16,5 @@ main.o: ../src/main.cpp
 	g++ -c $^ $(flags)
 
 clean:
-		rm -rf *.o
+	rm -rf *.o
+	rm chesso.exe
