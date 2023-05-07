@@ -21,6 +21,7 @@ public:
   bool getIsBlack() const;
   string getName() const;
 
+  virtual bool targets(Square const & start,Square const & end,Board const * board)const = 0;
   virtual bool isMoveValid(Square const & start,Square const & end,bool blackTurn,Board const * board) const = 0;
   string toString() const;
 };

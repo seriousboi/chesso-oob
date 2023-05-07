@@ -1,5 +1,6 @@
 #include <string>
 #include "Board.h"
+#include <iostream>
 
 
 
@@ -8,6 +9,7 @@ Board::Board(int length,int depth)
   width = length;
   height = depth;
   pieces = vector<vector<Piece *>>(width,vector<Piece *>(height));
+  blackTurn = false;
 }
 
 
@@ -17,6 +19,12 @@ int Board::getWidth() const
 
 int Board::getHeight() const
 {return height;}
+
+bool Board::getTurn() const
+{return blackTurn;}
+
+void Board::setTurn(bool isBlackTurn)
+{blackTurn = isBlackTurn;}
 
 
 
@@ -41,7 +49,7 @@ Piece * Board::getPiece(Square const & square) const
 
 
 
-void Board::play(Square const & start,Square const & end,bool blackTurn)
+void Board::play(Square const & start,Square const & end)
 {
   if(isInBounds(start) and isInBounds(end))
   {
@@ -54,6 +62,7 @@ void Board::play(Square const & start,Square const & end,bool blackTurn)
         if(pieceToMove->isMoveValid(start,end,blackTurn,this))
         {
           move(start,end);
+          blackTurn = not blackTurn;
         }
         else
         {

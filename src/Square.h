@@ -16,7 +16,7 @@ public:
   Square();
   Square(int a,int b);
   Square(string str);
-  Square(Square & square,int dx,int dy);
+  Square(Square const & square,int dx,int dy);
 
   int getX() const;
   int getY() const;

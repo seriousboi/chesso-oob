@@ -1,5 +1,5 @@
 flags = -W -Wall -ansi -pedantic -std=c++17
-obj = AIconnectivity.o ChessGame.o Square.o Piece.o Board.o ChessBoard.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o
+obj = AIconnectivity.o ChessMove.o ChessGame.o Square.o Piece.o Board.o ChessBoard.o Pawn.o Knight.o Bishop.o Rook.o Queen.o King.o
 
 
 

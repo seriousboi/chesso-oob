@@ -66,7 +66,7 @@ Square::Square(string str): Square()
 
 
 
-Square::Square(Square & square,int dx,int dy): Square()
+Square::Square(Square const & square,int dx,int dy): Square()
 {
   x = square.x + dx;
   y = square.y + dy;

@@ -16,21 +16,22 @@ protected:
   int width;
   int height;
   vector<vector<Piece *> > pieces;
+  bool blackTurn;
 
 public:
   int getWidth() const;
   int getHeight() const;
+  bool getTurn() const;
+  void setTurn(bool isBlackTurn);
   virtual void init() = 0;
   bool isInBounds(Square const & square) const;
   Piece * getPiece(Square const & square) const;
-  void play(Square const & start,Square const & end,bool blackTurn);
+  virtual void play(Square const & start,Square const & end);
 
 protected:
   Board(int length,int depth);
   void add(Piece * piece,Square const & square);
-  void move(Square const & start,Square const & end);
-
-  friend class ChessGame;
+  virtual void move(Square const & start,Square const & end);
 };
 
 #endif

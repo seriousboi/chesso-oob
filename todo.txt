@@ -1,11 +1,15 @@
-affichage joli
 
-connecter à l'IA
+-affichage joli
 
-faire les movements des pieces
+-bug /!\ : castle au travers des pieces possible et castle sans tour
 
-faire vérification layer chess: échecs
+-manage castle rights:
+  castling rights loss when:
+    castle happens
+    king moves
+    rook moves
+    rook gets taken
 
-enregistrer et charger partie
+-warning destructeur virtuel (?)
 
-destructeur de pièce quand elle est mangée? -> pile de moves plutot que détruire pour revenir en arrière
+-en passant

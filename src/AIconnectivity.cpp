@@ -4,32 +4,25 @@
 
 
 
-Move getAImove(ChessBoard const & board,bool blackTurn,bool whiteHasCastlingRights,bool blackHasCastlingRights,string gameDataPath)
+Move getAImove(ChessBoard const & board,string gameDataPath)
 {
-  writeInput(board,blackTurn,whiteHasCastlingRights,blackHasCastlingRights,gameDataPath);
+  writeInput(board,gameDataPath);
   system(("python3 '"+gameDataPath+"../playOutside.py'").c_str());
   return getOutput(gameDataPath);
 }
 
 
 
-void writeInput(ChessBoard const & board,bool blackTurn,bool whiteHasCastlingRights,bool blackHasCastlingRights,string gameDataPath)
+void writeInput(ChessBoard const & board,string gameDataPath)
 {
   string fileName = gameDataPath + "input.txt";
   ofstream outStream(fileName);
   outStream << "Board FEN:\n";
   outStream << board.toFen();
-  if(blackTurn)
-  {
-    outStream << " b";
-  }
-  else
-  {
-    outStream << " w";
-  }
-  outStream << " KQkq - 0 1\n"; //à améliorer
+
+  outStream << " 0 1\n"; //à améliorer
   outStream << "Its black's turn:\n";
-  outStream << blackTurn << endl;
+  outStream << board.getTurn() << endl;
   outStream.close();
 }
 

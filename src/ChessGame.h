@@ -8,9 +8,6 @@ class ChessGame
 {
 private:
   ChessBoard board;
-  bool blackTurn;
-  bool whiteHasCastlingRights;
-  bool blackHasCastlingRights;
   bool gameOver;
 
 public:

@@ -13,8 +13,8 @@ struct Move{
 
 
 
-Move getAImove(ChessBoard const & board,bool blackTurn,bool whiteHasCastlingRights,bool blackHasCastlingRights,string gameDataPath = "../ChessAI/gameData/");
-void writeInput(ChessBoard const & board,bool blackTurn,bool whiteHasCastlingRights,bool blackHasCastlingRights,string gameDataPath);
+Move getAImove(ChessBoard const & board,string gameDataPath = "../ChessAI/gameData/");
+void writeInput(ChessBoard const & board,string gameDataPath);
 Move getOutput(string gameDataPath);
 
 #endif
