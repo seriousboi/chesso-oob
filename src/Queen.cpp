@@ -4,6 +4,8 @@
 
 Queen::Queen(bool isDark): Piece(isDark,"queen"){}
 
+Queen::~Queen(){}
+
 
 
 bool Queen::targets(Square const & start,Square const & end,Board const * board) const

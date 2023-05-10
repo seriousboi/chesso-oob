@@ -5,6 +5,8 @@
 
 Pawn::Pawn(bool isDark): Piece(isDark,"pawn"){}
 
+Pawn::~Pawn(){}
+
 
 
 bool Pawn::targets(Square const & start,Square const & end,Board const * board) const

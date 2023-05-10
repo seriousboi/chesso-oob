@@ -7,13 +7,19 @@
 class ChessGame
 {
 private:
+  bool running;
+  bool whiteIsAI;
+  bool blackIsAI;
+
   ChessBoard board;
   bool gameOver;
 
 public:
   ChessGame();
+  void run();
   void play();
-  void printHelp() const;
+  void printMenu();
 };
 
 #endif
+;

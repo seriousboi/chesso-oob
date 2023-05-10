@@ -17,6 +17,7 @@ private:
 
 public:
   Piece(bool isDark,string const & noun);
+  virtual ~Piece();
 
   bool getIsBlack() const;
   string getName() const;

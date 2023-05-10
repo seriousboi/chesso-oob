@@ -38,6 +38,9 @@ ChessBoard::~ChessBoard()
 
 void ChessBoard::init()
 {
+  // on désalloue l'es pieces de l'ancien plateau car on peut appeller init() pour recommancer une partie
+  deallocPieces();
+
   /* variables de partie */
   isCheckMate = false;
   isStaleMate = false;
@@ -470,8 +473,7 @@ void ChessBoard::loadFile(string const & fileName)
   ifstream dataStream(fileName);
   if(!dataStream)
   {
-    cout << "oof, cannot open file '" << fileName << "'\n";
-    return; //une execption serait meilleure ici
+    throw string("oof, cannot open file '" + fileName + "'\n");
   }
   string fen = "";
   string buffer;

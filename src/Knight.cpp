@@ -4,6 +4,8 @@
 
 Knight::Knight(bool isDark): Piece(isDark,"knight"){}
 
+Knight::~Knight(){}
+
 
 
 bool Knight::targets(Square const & start,Square const & end,Board const * board) const

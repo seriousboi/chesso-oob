@@ -9,28 +9,86 @@ using namespace std;
 
 ChessGame::ChessGame()
 {
-  board.init();
-  gameOver = false;
+  running = true;
+  whiteIsAI = false;
+  blackIsAI = true;
+}
+
+
+
+void ChessGame::run()
+{
+  string input;
+  string fileName;
+
+  printMenu();
+
+  while(running)
+  {
+    getline(cin, input);
+
+    if(input == "quit")
+    {
+      running = false;
+    }
+    else if(input == "load")
+    {
+      cout << "Type the name of file to load\n";
+      getline(cin, fileName);
+      try
+      {
+        board.loadFile(fileName);
+        play();
+        printMenu();
+      }
+      catch(string const & msg)
+      {
+        cout << msg;
+        cout << endl;
+      }
+    }
+    else if(input == "play")
+    {
+      board.init();
+      play();
+      printMenu();
+    }
+    else if(input == "set white manual")
+    {
+      whiteIsAI = false;
+      cout << "White set to manual control\n";
+    }
+    else if(input == "set black manual")
+    {
+      blackIsAI = false;
+      cout << "Black set to manual control\n";
+    }
+    else if(input == "set white AI")
+    {
+      whiteIsAI = true;
+      cout << "White set to AI control\n";
+    }
+    else if(input == "set black AI")
+    {
+      blackIsAI = true;
+      cout << "Black set to AI control\n";
+    }
+    else
+    {
+      cout << "Unkown command\n";
+    }
+  }
 }
 
 
 
 void ChessGame::play()
 {
-  bool whiteIsAI = false;
-  bool blackIsAI = true;
+  gameOver = false;
 
-  //board.loadFile("../data/castle.txt");
-  //board.loadFile("../data/prom.txt");
-  //board.loadFile("../data/bug.txt");
-  //board.loadFile("../data/checkmate.txt");
-  //board.loadFile("../data/whereking.txt");
-  //board.loadFen("8/8/6k1/5pB1/5K2/5N2/5nPP/4RB1R w KQkq");
-  //board.loadFen("8/1b13p1/pN3k2/3Ppp2/2P5/3K2P1/8/5R2 w");
-  //board.loadFen("8/2P2kp1/3B1p2/1p3r2/8/P6p/8/3KR3 b");
-  //board.loadFen("k7/6R1/8/3K4/8/8/1R6/8 w");
-
-  printHelp();
+  cout << endl;
+  cout << "Type 'quit' to return to the menu\n";
+  cout << "Type 'undo' to undo the last move\n";
   while(not gameOver)
   {
     bool moveInputted;
@@ -42,7 +100,7 @@ void ChessGame::play()
 
     while(not moveMade)
     {
-      cout << board.toFen() << endl;
+      //cout << board.toFen() << endl; debug
       cout << board.toString();
 
       if(board.getTurn())
@@ -65,7 +123,7 @@ void ChessGame::play()
       }
       else
       {
-        cin >> startInput;
+        getline(cin, startInput);
 
         if(startInput == "quit")
         {
@@ -83,7 +141,7 @@ void ChessGame::play()
         }
         else
         {
-          cin >> endInput;
+          getline(cin, endInput);
           moveInputted = true;
 
           start = Square(startInput);
@@ -120,8 +178,14 @@ void ChessGame::play()
 
 
 
-void ChessGame::printHelp() const
+void ChessGame::printMenu()
 {
-  cout << "Type 'quit' to close the game\n";
-  cout << "Type 'undo' to undo the last move\n";
+  cout << endl;
+  cout << "Type 'play' to start a chess game\n";
+  cout << "Type 'quit' to close the program\n";
+  cout << "Type 'load' to load a board\n";
+  cout << "Type 'set <color> <user>' to choose if a side is controlled by a player or an AI\n";
+  cout << "<color> can be 'black' or 'white', <user> can be 'AI' or 'manual'\n";
+  cout << "By default white is controlled manually and black is an AI\n";
+  cout << endl;
 }

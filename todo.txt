@@ -1,6 +1,4 @@
 
--affichage joli
-
 -bug /!\ : castle au travers des pieces possible et castle sans tour
 
 -manage castle rights:

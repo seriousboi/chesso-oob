@@ -11,10 +11,7 @@ using namespace std;
 
 
 int main() {
-  //ChessBoard board;
-  //board.loadFen("r3k2r/ppp2ppp/5bb1/8/8/1BB5/PPP2PPP/R3K2R b");
-  //cout << board.toString();
   ChessGame game;
-  game.play();
+  game.run();
   return 0;
 }

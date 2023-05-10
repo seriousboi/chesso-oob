@@ -1,6 +1,8 @@
 build*
 !build/Makefile
+!build/noUImakefile
 
+todo.txt
 Algorithmes Echec.pdf
 Projet Echec.pdf
 

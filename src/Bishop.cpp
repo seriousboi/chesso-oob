@@ -4,6 +4,8 @@
 
 Bishop::Bishop(bool isDark): Piece(isDark,"bishop"){}
 
+Bishop::~Bishop(){}
+
 
 
 bool Bishop::targets(Square const & start,Square const & end,Board const * board) const

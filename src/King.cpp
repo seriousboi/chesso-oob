@@ -5,6 +5,8 @@
 
 King::King(bool isDark): Piece(isDark,"king"){}
 
+King::~King(){}
+
 
 
 bool King::targets(Square const & start,Square const & end,Board const * board) const

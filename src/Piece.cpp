@@ -14,6 +14,8 @@ Piece::Piece(bool isDark,string const & noun)
   }
 }
 
+Piece::~Piece(){}
+
 bool Piece::getIsBlack() const{return isBlack;}
 
 string Piece::getName() const{return name;}

@@ -4,6 +4,8 @@
 
 Rook::Rook(bool isDark): Piece(isDark,"rook"){}
 
+Rook::~Rook(){}
+
 
 
 bool Rook::targets(Square const & start,Square const & end,Board const * board) const
